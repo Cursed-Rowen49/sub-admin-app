@@ -1,13 +1,12 @@
 import React from 'react';
+import signin from '../pages/signin/signin.page';
 
-function Index() {
+export default function Index() {
   return (
     <>
       <div>
-        <h1>Index File -- Hello World!</h1>
+        <h1>Index Page</h1>
       </div>
     </>
   );
 }
-
-export default Index;
