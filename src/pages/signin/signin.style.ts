@@ -22,7 +22,7 @@ export const BoxSx = styled(Box)({
   justifyContent: 'center',
 });
 
-export const TypographySx = styled(Typography)({
+export const TypographyHeading = styled(Typography)({
   fontSize: '32px',
   fontFamily: 'system-ui',
   fontWeight: '700',
@@ -34,10 +34,16 @@ export const ButtonSx = styled(Button)({
   width: '90%',
   marginTop: '10px',
   marginBottom: '10px',
-  backgroundColor: '#4958bd',
   fontFamily: 'system-ui',
   textTransform: 'capitalize',
-  textAlign: 'center',
+  display: 'flex',
+  alignItems: 'center',
+  mt: 1,
+  color: 'white',
+  backgroundColor: '#2f3fad',
+  '&:hover': {
+    backgroundColor: '#2f3fad',
+  },
 });
 
 export const button = styled(Button)({

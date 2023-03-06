@@ -1,9 +1,80 @@
-import * as React from 'react';
-import { BoxSx, TypographySx, ButtonSx, CustomTextField } from './signin.style';
+import React, { useState } from 'react';
+import { BoxSx, TypographyHeading, ButtonSx } from './signin.style';
 import Image from 'next/image';
-import { Typography, Box, FormControl } from '@mui/material';
+import { Typography, Box, TextField } from '@mui/material';
 
 export default function signin() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
+  const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+
+  // handleonClick Function
+  const handleOnclick = () => {
+    console.log('Email is : ' + email);
+    console.log('Password is : ' + password);
+    const regex =
+      /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const answer = email.match(regex);
+    const isValidLen = password.trim().length < 6;
+
+    if (email.trim() === '') {
+      setIsEmailEmpty(true);
+    }
+    if (answer) {
+      setIsEmailValid(false);
+    } else {
+      setIsEmailValid(true);
+    }
+    // password onClickFunction
+    if (password.trim() === '') {
+      setIsPasswordEmpty(true);
+    }
+    if (isValidLen) {
+      setIsPasswordValid(true);
+    } else {
+      setIsPasswordValid(false);
+    }
+  };
+
+  // handleonchange Function
+  const handleEmailOnChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setEmail(event.target.value);
+    const regex =
+      /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const answer = email.match(regex);
+
+    if (email === '') {
+      setIsEmailEmpty(false);
+    } else {
+      if (answer) {
+        setIsEmailValid(false);
+      } else {
+        setIsEmailValid(true);
+      }
+    }
+  };
+
+  const handlePassOnChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setPassword(event.target.value);
+    const isValidLen = password.trim().length < 6;
+
+    if (password.trim() === '') {
+      setIsPasswordEmpty(false);
+    }
+    if (isValidLen) {
+      setIsPasswordValid(true);
+    } else {
+      setIsPasswordValid(false);
+    }
+  };
+
   const paragraph: string = 'Sign in on the Internal Platform';
   const heading: string = 'Log in';
 
@@ -17,7 +88,7 @@ export default function signin() {
             width={92}
             height={36}
           />
-          <TypographySx variant="h1">{heading}</TypographySx>
+          <TypographyHeading variant="h1">{heading}</TypographyHeading>
           <Typography
             sx={{
               fontSize: '12px',
@@ -28,40 +99,55 @@ export default function signin() {
           >
             {paragraph}
           </Typography>
-
-          <Box component="form" noValidate autoComplete="off">
+          <Box>
             <Box
               sx={{
                 textAlign: 'center',
               }}
             >
-              <CustomTextField
+              <TextField
                 label="Email Address"
                 id="outlined-size-small"
                 size="small"
-                required
+                sx={{
+                  width: '90% !important',
+                  margin: '10px auto',
+                }}
+                value={email}
+                onChange={handleEmailOnChange}
+                error={isEmailEmpty || isEmailValid}
+                helperText={
+                  isEmailEmpty
+                    ? 'This Field is Required'
+                    : isEmailValid
+                    ? 'Email should be in example@gmail.com'
+                    : ''
+                }
               />
-              <CustomTextField
+              <TextField
                 id="outlined-password-input"
                 label="Password"
                 type="password"
                 autoComplete="current-password"
                 size="small"
-                required
+                sx={{
+                  width: '90% !important',
+                  margin: '10px auto',
+                }}
+                value={password}
+                onChange={handlePassOnChange}
+                error={isPasswordEmpty || isPasswordValid}
+                helperText={
+                  isPasswordEmpty
+                    ? 'This Field is Required'
+                    : isPasswordValid
+                    ? 'atleast 6 Character needed.(NoSpaces)'
+                    : ''
+                }
               />
             </Box>
           </Box>
-          <ButtonSx
-            type="submit"
-            fullWidth
-            sx={{
-              mt: 1,
-              backgroundColor: 'blue',
-              '&:hover': {
-                backgroundColor: 'blue',
-              },
-            }}
-          >
+          <ButtonSx fullWidth onClick={handleOnclick}>
             Log In
           </ButtonSx>
         </BoxSx>
