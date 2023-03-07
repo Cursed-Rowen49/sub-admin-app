@@ -1,14 +1,12 @@
-import {
-  styled,
-  Box,
-  TextField,
-  Typography,
-  Button,
-  List,
-} from '@mui/material';
-import { style } from '@mui/system';
+import { styled, Box, Typography, Button } from '@mui/material';
 
-export const BoxSx = styled(Box)({
+export const MainContainer = styled(Box)({
+  width: '100%',
+  margin: '0px',
+  padding: '0px',
+});
+
+export const BoxCard = styled(Box)({
   maxWidth: '436px',
   height: '436px',
   backgroundColor: '#fff',
@@ -21,16 +19,35 @@ export const BoxSx = styled(Box)({
   alignItems: 'center',
   justifyContent: 'center',
 });
+export const CardImage = styled(Box)({
+  width: '92px',
+  height: '36px',
+});
 
-export const TypographyHeading = styled(Typography)({
+export const LoginBoxContent = styled(Box)({});
+
+export const LoginHeader = styled(Typography)({
   fontSize: '32px',
   fontFamily: 'system-ui',
   fontWeight: '700',
   marginTop: '18px',
   marginBottom: '12px',
+  display: 'flex',
+  justifyContent: 'center',
 });
 
-export const ButtonSx = styled(Button)({
+export const BoxSign = styled(Typography)({
+  fontSize: '12px',
+  fontWeight: '700',
+  color: '#959595',
+  marginBottom: '24px',
+});
+
+export const TextFieldBox = styled(Box)({
+  textAlign: 'center',
+});
+
+export const LoginButton = styled(Button)({
   width: '90%',
   marginTop: '10px',
   marginBottom: '10px',
@@ -44,17 +61,4 @@ export const ButtonSx = styled(Button)({
   '&:hover': {
     backgroundColor: '#2f3fad',
   },
-});
-
-export const button = styled(Button)({
-  maxWidth: '436px',
-  height: '436px',
-  backgroundColor: '#959595',
-  borderRadius: '6px',
-});
-
-export const CustomTextField = styled(TextField)({
-  width: '90% !important',
-  margin: '10px auto',
-  '&:hover': {},
 });
