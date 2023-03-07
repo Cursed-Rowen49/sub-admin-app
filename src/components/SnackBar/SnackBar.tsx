@@ -21,7 +21,7 @@ export default function CustomizedSnackbars() {
 
   return (
     <>
-      <Stack spacing={3} sx={{ width: '25%', margin: '24px auto' }}>
+      <Stack spacing={2} sx={{ width: '25%', margin: '24px auto' }}>
         <Alert severity="error">Invalid Credentials!</Alert>
       </Stack>
     </>
