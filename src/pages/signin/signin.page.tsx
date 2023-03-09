@@ -69,7 +69,7 @@ export default function signin() {
         console.log('Invalid credentials.');
         setTimeout(() => {
           setSnackbarPop(false);
-        }, 3000);
+        }, 2500);
         setSnackbarPop(true);
       }
     }
