@@ -96,7 +96,7 @@ export default function signin() {
     target: { value: React.SetStateAction<string> };
   }) => {
     setPassword(event.target.value);
-    const isValidLen = password.trim().length < 6;
+    const isValidLen = password.trim().length <= 5;
 
     if (password.trim() === '') {
       setIsPasswordEmpty(false);

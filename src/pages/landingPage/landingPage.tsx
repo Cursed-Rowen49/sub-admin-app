@@ -4,9 +4,7 @@ import NavigationBar from '@/components/NavigationBar/NavigationBar';
 function landingPage() {
   return (
     <>
-      <div>
-        <NavigationBar />
-      </div>
+      <NavigationBar />
     </>
   );
 }

@@ -2,10 +2,8 @@ import { styled, Box, Typography, Button } from '@mui/material';
 
 export const MainContainer = styled(Box)({
   width: '100vw',
-  height: '100vh',
   margin: '0',
   padding: '0px',
-  
 });
 
 export const BoxCard = styled(Box)({
@@ -20,7 +18,7 @@ export const BoxCard = styled(Box)({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  boxShadow:'2px 2px 12px 3px #00000033',
+  boxShadow: '2px 2px 12px 3px #00000033',
 });
 export const CardImage = styled(Box)({
   width: '92px',
