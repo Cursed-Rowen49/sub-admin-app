@@ -1,12 +1,12 @@
 import React from 'react';
 
-import SidebarDrawer from '@/components/SidebarDrawer';
+import NavSideBar from '@/components/NavigationBar';
 
 function landingPage() {
   return (
     <>
       <div>
-        <SidebarDrawer />
+        <NavSideBar />
       </div>
     </>
   );

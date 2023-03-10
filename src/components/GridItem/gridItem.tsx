@@ -13,7 +13,7 @@ export default function ResponsiveCard({ dataFromApi }) {
   // console.log(dataFromApi);
 
   return (
-    <Box sx={{ flexGrow: 1, paddingRight: '16px' }}>
+    <Box sx={{ flexGrow: 1, margin: '10px' }}>
       <Grid
         container
         spacing={{ xs: 2, md: 2 }}
@@ -25,7 +25,7 @@ export default function ResponsiveCard({ dataFromApi }) {
             <>
               <Grid item xs={4} sm={4} md={4}>
                 <Item>
-                  <CardActionArea>
+                  <CardActionArea sx={{ minWidth: '370px' }}>
                     <Link href={url}>
                       {/* Link from -> Mui */}
                       <CardContainer>
