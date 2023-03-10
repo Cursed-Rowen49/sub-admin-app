@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
+import SigninController from './signin.controller';
 
 import { TextField } from '@mui/material';
 import CustomizedSnackbars from '@/components/SnackBar/SnackBar';
@@ -16,97 +16,22 @@ import {
   TextFieldBox,
   LoginButton,
 } from './signin.style';
-import Credentials from './DummyData';
 
 export default function signin() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
-  const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isPasswordValid, setIsPasswordValid] = useState(false);
-  const [snackbarPop, setSnackbarPop] = useState(false);
-  const router = useRouter();
+  const { getters, handlers } = SigninController();
 
-  const mainEmail = Credentials.email;
-  const mainPassword = Credentials.password;
-  const check = true;
+  const {
+    email,
+    password,
+    isPasswordEmpty,
+    isEmailEmpty,
+    isEmailValid,
+    isPasswordValid,
+    snackbarPop,
+    router,
+  } = getters;
 
-  const regex =
-    /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const answer = email.match(regex);
-  const isValidLen = password.trim().length < 6;
-
-  // handleonClick Function
-  const handleOnclick = () => {
-    console.log('Email is : ' + email);
-    console.log('Password is : ' + password);
-
-    if (email.trim() === '') {
-      setIsEmailEmpty(true);
-    }
-    if (answer) {
-      setIsEmailValid(false);
-    } else {
-      setIsEmailValid(true);
-    }
-    // password onClickFunction
-    if (password.trim() === '') {
-      setIsPasswordEmpty(true);
-    }
-    if (isValidLen) {
-      setIsPasswordValid(true);
-    } else {
-      setIsPasswordValid(false);
-    }
-
-    if (!(email === '') && !(password === '') && !isEmailValid) {
-      if (mainEmail === email && mainPassword === password) {
-        router.push('/landingPage');
-        const token = Math.random() * 10000;
-        console.log(Math.floor(token));
-      } else {
-        console.log('Invalid credentials.');
-        setTimeout(() => {
-          setSnackbarPop(false);
-        }, 2500);
-        setSnackbarPop(true);
-      }
-    }
-  };
-
-  // handleonchange Function
-  const handleEmailOnChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setEmail(event.target.value);
-
-    if (email === '') {
-      setIsEmailEmpty(false);
-    } else {
-      if (answer) {
-        setIsEmailValid(false);
-      } else {
-        setIsEmailValid(true);
-      }
-    }
-  };
-
-  const handlePassOnChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setPassword(event.target.value);
-    const isValidLen = password.trim().length <= 5;
-
-    if (password.trim() === '') {
-      setIsPasswordEmpty(false);
-    }
-    if (isValidLen) {
-      setIsPasswordValid(true);
-    } else {
-      setIsPasswordValid(false);
-    }
-  };
+  const { handleOnclick, handleEmailOnChange, handlePassOnChange } = handlers;
 
   const paragraph: string = 'Sign in on the Internal Platform';
   const heading: string = 'Log in';
