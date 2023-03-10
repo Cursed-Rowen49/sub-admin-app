@@ -3,7 +3,7 @@ import { styled, Box, Typography, Button } from '@mui/material';
 export const MainContainer = styled(Box)({
   width: '100vw',
   margin: '0',
-  padding: '0px',
+  padding: '0',
 });
 
 export const BoxCard = styled(Box)({
@@ -12,7 +12,7 @@ export const BoxCard = styled(Box)({
   backgroundColor: '#fff',
   margin: '108px auto',
   borderRadius: '6px',
-  boxShadow: '6',
+  // boxShadow: '6',
   padding: '10px',
   display: 'flex',
   flexDirection: 'column',
@@ -60,6 +60,6 @@ export const LoginButton = styled(Button)({
   color: 'white',
   backgroundColor: '#2f3fad',
   '&:hover': {
-    backgroundColor: '#2f3fad',
+    backgroundColor: '#4d5fd4',
   },
 });

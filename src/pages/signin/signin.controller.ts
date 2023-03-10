@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Credentials from './DummyData';
+import Credentials from '../../ApiData/DummyData';
 
 interface ISigninController {
   getters: {
@@ -20,7 +20,7 @@ interface ISigninController {
   };
 }
 
-export function SigninController() {
+export function SigninController(): ISigninController {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isEmailEmpty, setIsEmailEmpty] = useState(false);
@@ -32,7 +32,6 @@ export function SigninController() {
 
   const mainEmail = Credentials.email;
   const mainPassword = Credentials.password;
-  const check = true;
 
   const regex =
     /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

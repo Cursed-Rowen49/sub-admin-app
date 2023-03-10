@@ -13,10 +13,10 @@ export default function ResponsiveCard({ dataFromApi }) {
   // console.log(dataFromApi);
 
   return (
-    <Box sx={{ flexGrow: 1, margin: '16px' }}>
+    <Box sx={{ flexGrow: 1, paddingRight: '16px' }}>
       <Grid
         container
-        spacing={{ xs: 2, md: 3 }}
+        spacing={{ xs: 2, md: 2 }}
         columns={{ xs: 1, sm: 8, md: 12 }}
       >
         {dataFromApi.map((curEle: { OrgName: string; link: string }) => {

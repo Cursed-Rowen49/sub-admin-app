@@ -8,7 +8,7 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export const CardContainer = styled(Box)({
-  minWidth: 264,
+  minWidth: 250,
   height: 230,
   border: 'none',
   display: 'flex',

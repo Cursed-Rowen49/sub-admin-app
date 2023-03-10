@@ -88,7 +88,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #edeff0;
+  background-color: rgb(249, 250, 252);
 }
 .text-field-container {
   display: flex;
@@ -106,3 +106,4 @@ a {
     color-scheme: dark;
   }
 }
+
