@@ -69,19 +69,6 @@ export default function NavigationBar() {
               'Inbox',
               'Starred',
               'Send email',
-              'Drafts',
-              'Inbox',
-              'Starred',
-              'Send email',
-              'Drafts',
-              'Inbox',
-              'Starred',
-              'Send email',
-              'Drafts',
-              'Inbox',
-              'Starred',
-              'Send email',
-              'Drafts',
             ].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
