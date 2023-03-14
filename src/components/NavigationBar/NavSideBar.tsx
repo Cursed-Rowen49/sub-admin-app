@@ -9,6 +9,7 @@ import Data from '@/ApiData/ThreeData';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
+import image from 'public/assert/images/sidebar-logo.webp';
 
 import {
   Divider,
@@ -20,6 +21,8 @@ import {
   ListItemIcon,
   IconButton,
 } from '@mui/material';
+import Image from 'next/image';
+import { ListContainer } from './NavSideBar.style';
 
 type Anchor = 'left';
 
@@ -45,17 +48,18 @@ export default function NavigationBar() {
   const list = (anchor: Anchor) => (
     <Box sx={{ backgroundColor: 'rgb(17,24,39)', minHeight: '100vh' }}>
       <Box>
-        <Box
-          sx={{
-            width: 250,
-            paddingTop: '60px',
-            color: '#fff',
-            backgroundColor: 'rgb(17,24,39)',
-          }}
+        <ListContainer
           role="presentation"
           onClick={toggleDrawer(anchor, false)}
           onKeyDown={toggleDrawer(anchor, false)}
         >
+          <Image
+            src={image}
+            alt="ebotify logo"
+            width={150}
+            height={50}
+            title="ebotify logo"
+          />
           <List>
             {[
               'Inbox',
@@ -101,7 +105,7 @@ export default function NavigationBar() {
               </ListItem>
             ))}
           </List>
-        </Box>
+        </ListContainer>
       </Box>
     </Box>
   );
