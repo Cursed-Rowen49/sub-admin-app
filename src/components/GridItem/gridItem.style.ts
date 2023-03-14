@@ -15,6 +15,7 @@ export const CardContainer = styled(Box)({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'space-around',
+  paddingTop: '32px',
 });
 
 export const CardImage = styled(Box)({

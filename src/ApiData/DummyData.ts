@@ -1,6 +1,6 @@
 const Credentials = {
-  email: 'aman@gmail.com',
-  password: 'aman49',
+  email: 'admin@gmail.com',
+  password: 'admin49',
 };
 
 export default Credentials;

@@ -43,42 +43,78 @@ export default function NavigationBar() {
     };
 
   const list = (anchor: Anchor) => (
-    <Box>
-      <Box
-        sx={{
-          width: 250,
-          paddingTop: '60px',
-          color: '#fff',
-        }}
-        role="presentation"
-        onClick={toggleDrawer(anchor, false)}
-        onKeyDown={toggleDrawer(anchor, false)}
-      >
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <AddCardIcon /> : <AdbIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon sx={{}}>
-                  {index % 2 === 0 ? <AddCardIcon /> : <AdbIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+    <Box sx={{ backgroundColor: 'rgb(17,24,39)', minHeight: '100vh' }}>
+      <Box>
+        <Box
+          sx={{
+            width: 250,
+            paddingTop: '60px',
+            color: '#fff',
+            backgroundColor: 'rgb(17,24,39)',
+          }}
+          role="presentation"
+          onClick={toggleDrawer(anchor, false)}
+          onKeyDown={toggleDrawer(anchor, false)}
+        >
+          <List>
+            {[
+              'Inbox',
+              'Starred',
+              'Send email',
+              'Drafts',
+              'Inbox',
+              'Starred',
+              'Send email',
+              'Drafts',
+              'Inbox',
+              'Starred',
+              'Send email',
+              'Drafts',
+              'Inbox',
+              'Starred',
+              'Send email',
+              'Drafts',
+              'Inbox',
+              'Starred',
+              'Send email',
+              'Drafts',
+              'Inbox',
+              'Starred',
+              'Send email',
+              'Drafts',
+            ].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? (
+                      <AddCardIcon sx={{ color: '#fff' }} />
+                    ) : (
+                      <AdbIcon sx={{ color: '#fff' }} />
+                    )}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+          <List>
+            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? (
+                      <AddCardIcon sx={{ color: '#fff' }} />
+                    ) : (
+                      <AdbIcon sx={{ color: '#fff' }} />
+                    )}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
       </Box>
     </Box>
   );

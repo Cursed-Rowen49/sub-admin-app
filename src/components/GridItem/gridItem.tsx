@@ -25,7 +25,7 @@ export default function ResponsiveCard({ dataFromApi }) {
             <>
               <Grid item xs={4} sm={4} md={4}>
                 <Item>
-                  <CardActionArea sx={{ minWidth: '370px' }}>
+                  <CardActionArea sx={{ minWidth: '288px' }}>
                     <Link href={url}>
                       {/* Link from -> Mui */}
                       <CardContainer>
