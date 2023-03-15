@@ -32,13 +32,13 @@ export default function NavigationBar() {
   const [state, setState] = React.useState({
     left: false,
   });
-  const [themeMode, setThemeMode] = useState('dark');
 
   //Adding useContext.
   const context = useContext(AppContext);
   const theme = context.mode.theme;
   const color = context.mode.color;
   const bgcolor = context.mode.bgColor;
+  const btnbgcolor = context.mode.btnBgColor;
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
@@ -55,19 +55,17 @@ export default function NavigationBar() {
     };
 
   const handleTheme = () => {
-    if (themeMode === 'dark') {
-      setThemeMode('light');
-      context.setMode({
-        theme: 'dark',
-        color: '#fff',
-        bgColor: 'rgb(17,24,39)',
-      });
-    } else {
-      setThemeMode('dark');
+    if (theme === 'light') {
       context.setMode({
         theme: 'dark',
         color: 'rgb(17,24,39)',
-        bgColor: '#fff',
+        bgColor: '#f8f8f8',
+      });
+    } else {
+      context.setMode({
+        theme: 'light',
+        color: '#f8f8f8',
+        bgColor: 'rgb(17,24,39)',
       });
     }
   };
@@ -176,7 +174,9 @@ export default function NavigationBar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Sub Admin App
             </Typography>
-            <ThemeButton onClick={handleTheme}>{themeMode}</ThemeButton>
+            <ThemeButton onClick={handleTheme}>
+              {context.mode.theme}
+            </ThemeButton>
             <Button color="inherit">Logout</Button>
           </Toolbar>
         </AppBar>
