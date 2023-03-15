@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -22,7 +22,9 @@ import {
   IconButton,
 } from '@mui/material';
 import Image from 'next/image';
-import { ListContainer } from './NavSideBar.style';
+import { ListContainer, ThemeButton } from './NavSideBar.style';
+import themeContext from '../AppContext';
+import AppContext from '../AppContext';
 
 type Anchor = 'left';
 
@@ -30,6 +32,13 @@ export default function NavigationBar() {
   const [state, setState] = React.useState({
     left: false,
   });
+  const [themeMode, setThemeMode] = useState('dark');
+
+  //Adding useContext.
+  const context = useContext(AppContext);
+  const theme = context.mode.theme;
+  const color = context.mode.color;
+  const bgcolor = context.mode.bgColor;
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
@@ -45,8 +54,26 @@ export default function NavigationBar() {
       setState({ ...state, [anchor]: open });
     };
 
+  const handleTheme = () => {
+    if (themeMode === 'dark') {
+      setThemeMode('light');
+      context.setMode({
+        theme: 'dark',
+        color: '#fff',
+        bgColor: 'rgb(17,24,39)',
+      });
+    } else {
+      setThemeMode('dark');
+      context.setMode({
+        theme: 'dark',
+        color: 'rgb(17,24,39)',
+        bgColor: '#fff',
+      });
+    }
+  };
+
   const list = (anchor: Anchor) => (
-    <Box sx={{ backgroundColor: 'rgb(17,24,39)', minHeight: '100vh' }}>
+    <Box sx={{ backgroundColor: '#fff', minHeight: '100vh' }}>
       <Box>
         <ListContainer
           role="presentation"
@@ -113,7 +140,14 @@ export default function NavigationBar() {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar
+          position="static"
+          sx={{
+            width: '100vw',
+            backgroundColor: `${bgcolor}`,
+            color: `${color}`,
+          }}
+        >
           <Toolbar>
             <div>
               {(['left'] as const).map((anchor) => (
@@ -142,6 +176,7 @@ export default function NavigationBar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Sub Admin App
             </Typography>
+            <ThemeButton onClick={handleTheme}>{themeMode}</ThemeButton>
             <Button color="inherit">Logout</Button>
           </Toolbar>
         </AppBar>
