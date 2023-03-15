@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import router, { useRouter } from 'next/router';
 
 export default function Index() {
-  return (
-    <>
-      <div>
-        <h1>Index Page</h1>
-      </div>
-    </>
-  );
+  useEffect(() => {
+    router.push('/signin');
+    return () => {};
+  });
+
+  return <div></div>;
 }
