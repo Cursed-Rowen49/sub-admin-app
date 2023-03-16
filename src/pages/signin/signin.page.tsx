@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import SigninController from './signin.controller';
 
-
 import { TextField } from '@mui/material';
 import CustomizedSnackbars from '@/components/SnackBar/SnackBar';
 
@@ -29,7 +28,6 @@ export default function signin() {
     isEmailValid,
     isPasswordValid,
     snackbarPop,
-    router,
   } = getters;
 
   const { handleOnclick, handleEmailOnChange, handlePassOnChange } = handlers;

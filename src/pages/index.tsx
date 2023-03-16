@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import router, { useRouter } from 'next/router';
+import router from 'next/router';
 
 export default function Index() {
   useEffect(() => {
+    // redirect to the siignin page.
     router.push('/signin');
   });
 

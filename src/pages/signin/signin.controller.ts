@@ -64,8 +64,6 @@ export function SigninController(): ISigninController {
     if (!(email === '') && !(password === '') && !isEmailValid) {
       if (mainEmail === email && mainPassword === password) {
         router.push('/landingPage');
-        const token = Math.random() * 10000;
-        console.log(Math.floor(token));
       } else {
         console.log('Invalid credentials.');
         setTimeout(() => {
