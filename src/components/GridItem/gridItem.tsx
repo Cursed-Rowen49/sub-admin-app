@@ -21,6 +21,8 @@ export default function ResponsiveCard(props: { dataFromApi: any }) {
   const color = context.mode.color;
   const bgcolor = context.mode.bgColor;
 
+  // const theme = context?.theme;
+
   useEffect(() => {
     if (theme === 'light') {
       context.setMode({
